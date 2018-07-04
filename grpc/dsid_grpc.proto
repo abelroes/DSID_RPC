@@ -1,0 +1,71 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+// The greeting service definition.
+service DSID_grpc {
+  // operação sem argumentos e sem valor de retorno
+  rpc method1 () returns () {}
+  
+  // operação com um argumento long e valor de retorno long 
+  rpc method2(LongNumberRequest) returns (LongNumberReply) {}
+
+  // operação com oito argumentos long e valor de retorno long 
+  rpc method3(EightLongNumberRequest) returns (LongNumberReply) {}
+  
+  // operação com um argumento String e valor de retorno String (4 args)
+  rpc method4(Strings4Request) returns (Strings4Reply) {}
+
+  // operação com um argumento String e valor de retorno String (8 args)
+  rpc method5(Strings8Request) returns (Strings8Reply) {}
+
+  // operação com um argumento String e valor de retorno String (16 args)
+  rpc method6(Strings16Request) returns (Strings16Reply) {}
+
+  // operação com um argumento String e valor de retorno String (32 args)
+  rpc method7(Strings32Request) returns (Strings32Reply) {}
+
+  // operação com um argumento String e valor de retorno String (64 args)
+  rpc method8(Strings64Request) returns (Strings64Reply) {}
+
+  // operação com um argumento String e valor de retorno String (128 args)
+  rpc method9(Strings128Request) returns (Strings128Reply) {}
+
+  // operação com um argumento String e valor de retorno String (254 args)
+  rpc method10(Strings254Request) returns (Strings254Reply) {}
+  
+  // operação com um argumento Object e valor de retorno Object
+  rpc method11(ObjectRequest) returns (ObjectReply) {}
+}
+
+// para method1
+message LongNumberRequest {
+  long number = 1;
+}
+
+message EightLongNumberRequest {
+    long number1 = 1;
+    long number2 = 2;
+    long number3 = 3;
+    long number4 = 4;
+    long number5 = 5;
+    long number6 = 6;
+    long number7 = 7;
+    long number8 = 8;
+}
+
+message LongNumberReply {
+  long number = 1;
+}
